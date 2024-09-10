@@ -2,7 +2,7 @@ import base64 as b64
 import numpy as np
 from tqdm import tqdm
 
-def single_byte_xor(input_str: str, encoded: bool=True) -> None:
+def single_byte_xor(input_str: str, flag_format: str, encoded: bool=True) -> None:
     if encoded:
         input_str = b64.b64decode(input_str)
 
@@ -18,10 +18,11 @@ def single_byte_xor(input_str: str, encoded: bool=True) -> None:
             xor_string = ''.join([chr(byte) for byte in xor_string])
         except ValueError:
             continue
-        if "flag" in xor_string:
+        if flag_format in xor_string:
             print(xor_string)
             break
 
 if __name__ == "__main__":
     encoded_str = "IConIT0xdSoldit1GTJ2GTIudRkxdigidTQgMyoZMXY0KiIZdiAZJTQ/NjJ2Zzs="
-    single_byte_xor(encoded_str)
+    flag_format = "flag{"
+    single_byte_xor(encoded_str, flag_format, encoded=True)
