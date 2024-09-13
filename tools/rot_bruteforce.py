@@ -16,7 +16,7 @@ def ROTBruteforce(string: str) -> None:
             if offset == -1:
                 decrypted_str += c
             else:
-                decrypted_str += chr(offset + ((ord_c - offset + i) % 26))
+                decrypted_str += chr(offset + ((ord_c - offset + i) % ALPHABET_LEN))
 
         decrypted_strs += f"{i: <4}{decrypted_str}"
         if i < ALPHABET_LEN - 1:
