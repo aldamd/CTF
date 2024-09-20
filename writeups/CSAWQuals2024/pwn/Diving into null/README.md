@@ -46,5 +46,7 @@ We love kind CTF authors. After doing some googling on how to use echo in place 
 ```sh
 groot@diving-into-null:~$ echo $(<.flag)
 echo $(<.flag)
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||| csawctf{penguins_are_just_birds_with_tuxedos} ||| |||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||| ||| csawctf{penguins_are_just_birds_with_tuxedos} ||| |||||||||||||||||||||||||||||||||||||||||||||||||||||
 ```
+
+Bada bing, our flag is csawctf{penguins_are_just_birds_with_tuxedos}
