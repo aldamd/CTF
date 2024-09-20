@@ -24,6 +24,7 @@ def IPidTCPCovertChannel(packets_of_interest: list[int], flag_format: str, keylo
         if ip_id_dec % ord(flag_format[0]) == 0:
             key = ip_id_dec // ord(flag_format[0])
             if chr(ip_id_dec // key) == flag_format[0]: break
+            #TODO may want to store all potentially valid keys in an array in case of false positives
 
     for idx in range(idx, len(ip_ids_hex)):
         str_ += chr(int(ip_ids_hex[idx], 16) // key)
