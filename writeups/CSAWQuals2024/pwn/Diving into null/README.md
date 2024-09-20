@@ -1,5 +1,6 @@
 # Diving into null
 > Oops, I rm -rf 'ed my binaries
+
 When we netcat into the challenge, we're automatically signed in as user groot. We immediately find out that, as the description alludes, we have jack squat for binaries. ls, cat, clear, none of them seem to work.
 
 ```sh
