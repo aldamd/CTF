@@ -13,20 +13,24 @@ def IPidTCPCovertChannel(packets_of_interest: list[int], flag_format: str, keylo
         except AttributeError:
             pass
 
-    #key has length of 2, so let's brute force from 10 to 99
-    for idx in range(10, 100):
-        str_ = ""
-        for ip_id_hex in ip_ids_hex:
-            #convert hex str ip_id_hex to decimal number ip_id_dec
-            ip_id_dec = int(ip_id_hex, 16)
-            #we're working with factors of idx, ensure that ip_id is divisible by idx
-            if ip_id_dec % idx == 0:
-                str_ += chr(ip_id_dec // idx)
-            else: continue
-        if flag_format in str_: 
-            print(str_)
-            break
-    
+    #assuming this will give us the flag outright, we know it starts with csaw{ and ends with }
+    str_ = ""
+    for idx in range(len(ip_ids_hex)):
+        #convert hex str ip_id_hex to decimal number ip_id_dec
+        ip_id_dec = int(ip_ids_hex[idx], 16)
+        #0 is divisible by everything and if we let a zero pass, we're gonna get a divide by zero error, so let's ignore naughty zeros
+        if not ip_id_dec: continue
+        #we're working with factors of idx, ensure that ip_id is divisible by idx
+        if ip_id_dec % ord(flag_format[0]) == 0:
+            key = ip_id_dec // ord(flag_format[0])
+            if chr(ip_id_dec // key) == flag_format[0]: break
+
+    for idx in range(idx, len(ip_ids_hex)):
+        str_ += chr(int(ip_ids_hex[idx], 16) // key)
+        if str_[-1] == "}": break
+
+    print(str_)
+
     return str_
 
 if __name__ == "__main__":
