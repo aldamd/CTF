@@ -27,7 +27,7 @@ encode_message("????????????")
 
 The same host is also browsing a firsmonday.org article about Covert channels in the TCP/IP protocol suite over HTTP2 (hmm I wonder what this challenge will be about)
 
-We now know to be suspicious about 172.20.10.5's requests over TCP, and if they're using the python script they fetched previously, they're using a 2-digit key to encode their secret messages in the IP section of the TCP packet. The encoding takes a single letter of their message, converts it to unicode (decimal ASCII representation), and multiplies it by their key.
+We now know to be suspicious about 172.20.10.5's requests over TCP, and if they're using the python script they fetched previously, they're using a 2-digit key to encode their secret messages in the IP section of the TCP packet. The encoding takes a single letter of their message, converts it to decimal, and multiplies it by their key.
 
 The next thing to do is to start snooping around 172.20.10.5's TCP connections and pay extra attention to the IP header contents
 
@@ -79,5 +79,5 @@ if __name__ == "__main__":
     flag = IPidTCPCovertChannel(packets_of_interest, flag_format, keylog_file=keylog_file)
 ```
 
-Since we know the flag should start with 'c' (unicode 99), we can go letter by letter, checking if our encoded characters are divisible by 99 and, if so, check if the ASCII representation of said division is the character 'c'. If so, it's probably our flag. And just like magic, after running the script, we get: csawctf{licen$e_t0_tr@nsmit_c0vertTCP$$$}
+Since we know the flag should start with 'c' (decimal 99), we can go letter by letter, checking if our encoded characters are divisible by 99 and, if so, check if the ASCII representation of said division is the character 'c'. If so, it's probably our flag. And just like magic, after running the script, we get: csawctf{licen$e_t0_tr@nsmit_c0vertTCP$$$}
 
