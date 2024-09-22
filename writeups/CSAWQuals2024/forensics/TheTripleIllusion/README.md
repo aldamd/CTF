@@ -3,6 +3,8 @@
 
 ## Tools
 - zsteg
+- cyberchef
+- python3
 
 ## Method
 When you see a .png file in a CTF, your success is in the hands of zsteg. I don't make the rules. Running $zsteg on the 3 given png files gives us the following (after some cleanup):
