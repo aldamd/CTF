@@ -30,8 +30,7 @@ Instead I used an online .RAF to .JPG converter! They didn't ask for credit card
 
 I guess that red billboard could be our "flashy show".
 Let's see what else the file can tell us through metadata with $exiftool.
-
-The file is very rich in metadata, 167 lines! The item that pops out most is:
+167 lines! The item that pops out most is:
 ```shell
 Location Shown Sublocation      : 40.7043749, -73.9903311
 ```
