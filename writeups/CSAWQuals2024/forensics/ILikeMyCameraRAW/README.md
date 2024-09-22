@@ -4,9 +4,9 @@
 - zsteg
 - exiftool
 - .RAF to .JPG
-##
-We're thrust into this challenge with 3 files, DSCF3911.RAF, message.txt.gpg, and secret.png. Below are my results using $file:
 
+## Method
+We're thrust into this challenge with 3 files, DSCF3911.RAF, message.txt.gpg, and secret.png. Below are my results using $file:
 ```shell
 DSCF3911.RAF:    Fujifilm RAF raw image data, format version 0201, camera X-H1
 message.txt.gpg: PGP symmetric key encrypted data - AES with 256-bit key salted & iterated - SHA256 .
