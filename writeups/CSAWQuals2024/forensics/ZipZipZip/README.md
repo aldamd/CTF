@@ -16,7 +16,7 @@ from zipfile import ZipFile
 from os import remove
 from base64 import b64decode #when in doubt try base64
 
-def recursiveUnzip(first_zip: str, file_ext_oi: str) -> None:
+def nestedUnzip(first_zip: str, file_ext_oi: str) -> None:
     with ZipFile(first_zip) as zf:
         zipfiles = [i for i in zf.namelist() if ".zip" in i]
         if zipfiles:
@@ -54,7 +54,7 @@ def recursiveUnzip(first_zip: str, file_ext_oi: str) -> None:
 if __name__ == "__main__":
     first_zip = "challenge.zip"
     file_ext_oi = ".txt" #file extension of interest
-    recursiveUnzip(first_zip, file_ext_oi)
+    nestedUnzip(first_zip, file_ext_oi)
 ```
 
 Finally, after unarchiving some 35,000 files, combining their bytes and decoding from base64, it looks like the final product is a PNG image:
