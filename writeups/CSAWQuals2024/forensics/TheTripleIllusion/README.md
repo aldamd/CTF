@@ -39,6 +39,6 @@ for idx in range(len(nums)):
 print(xor_msg)
 ```
 we almost get the flag: csawctf{great_wyxn_you_cracked_the_obscured_secret_flag}.
-Sometimes corruptions happen. With my unfathomable wordle experience, I'm able to deduce that wyxn should probably instead be "work" in this context. And with that, we get an acceptable flag!!
+Sometimes corruptions happen. With my insurmountable wordle experience, I'm able to deduce that wyxn should probably instead be "work" in this context. And with that, we get an acceptable flag!!
 
 csawctf{great_work_you_cracked_the_obscured_secret_flag}
