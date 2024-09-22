@@ -18,34 +18,31 @@ b3,g,lsb,xy         .. file: GLS_BINARY_MSB_FIRST
 b4,g,msb,xy         .. file: GTA audio index data (SDT)
 ```
 
-[I']m a big, bold ad, a flashy show,
+"[I']m a big, bold ad, a flashy show,
 Above a brick wall, red as a pale tomato.
-Spillin[...]
-
-Alright, I guess we're looking out for big bold red ads.
+Spillin[...]"
+Alright, I guess we're looking out for big, bold, red ads.
 
 I looked into viewing the .RAF file but I couldn't natively open it and I didn't feel like downloading third party software or converting it to another format.
-Instead I used an online viewer! They didn't even for credit card information so this was a win:
+Instead I used an online .RAF to .JPG converter! They didn't ask for credit card information so this was a win:
 
 ![image](https://github.com/user-attachments/assets/78ea8829-2d9d-4d86-b8ec-d20f11de5f0c)
 
-I guess that red billboard could be our "flashy show"
+I guess that red billboard could be our "flashy show".
+Let's see what else the file can tell us through metadata with $exiftool.
 
-Let's see what else the file can tell us in its metadata with $exiftool
-
-The file is very rich in metadata, 167 lines! The items that pop out most are:
+The file is very rich in metadata, 167 lines! The item that pops out most is:
 ```shell
 Location Shown Sublocation      : 40.7043749, -73.9903311
 ```
-
 Location data is always juicy! Let's see if we can reproduce this shot on google street view.
 
-Don't get me wrong, it's a beautiful photo, but the combination of elevation changes and the filters gave my peanut brain a hard time trying to reproduce.
-However, while virtually standing at the coordinates, I do see a building above the aforementioned "brick wall" that looks somewhat similar to the red shining building on the left in the photo.
+The answer was not really!! Don't get me wrong, it's a beautiful photo, but the combination of elevation changes and the filters gave my peanut brain a hard time trying to reproduce.
+However, while virtually standing at the coordinates, I did see a building above the aforementioned "brick wall" that looks somewhat similar to the red shining building on the left in the photo.
 
-So like a wild dog I started running through the Google Streets™, chasing down the address of what looked to be the red shining building until I found 60 Water Street (I guess that could be our Spillin[...] hint. Some Google searching and a Wikipedia page later, I found a close-up shot of the advertisement above with a phone number.
+So like a wild dog, I started running through the Google Streets™, chasing down the address of what looked to be the red shining building until I found 60 Water Street (I guess that could be our Spillin[...] hint. Some Google searching and a Wikipedia page later, I found a close-up shot of the advertisement above with a phone number.
 
-Slapping the phone number into password-protected pgp key seems to do the trick!
+Slapping the phone number into our password-protected pgp key seems to do the trick!
 ```shell
 gpg: AES256.CFB encrypted data
 gpg: encrypted with 1 passphrase
