@@ -26,7 +26,7 @@ def nestedUnzip(first_zip: str, file_ext_oi: str) -> None:
 
             if zipfiles:
                 zf.extract(zipfiles[0])
-                os.remove(current_zip)
+                remove(current_zip)
                 current_zip = zipfiles[0]
             else:
                 break
