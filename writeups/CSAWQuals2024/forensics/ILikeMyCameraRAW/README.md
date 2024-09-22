@@ -1,5 +1,10 @@
 # I Like My Camera RAW
-
+## Tools used
+- gpg
+- zsteg
+- exiftool
+- .RAF to .JPG
+##
 We're thrust into this challenge with 3 files, DSCF3911.RAF, message.txt.gpg, and secret.png. Below are my results using $file:
 
 ```shell
