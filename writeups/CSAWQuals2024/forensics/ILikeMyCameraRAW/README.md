@@ -26,8 +26,8 @@ b4,g,msb,xy         .. file: GTA audio index data (SDT)
 "[I']m a big, bold ad, a flashy show,
 Above a brick wall, red as a pale tomato.
 Spillin[...]"
-Alright, I guess we're looking out for big, bold, red ads.
 
+Alright, I guess we're looking out for big, bold, red ads.
 I looked into viewing the .RAF file but I couldn't natively open it and I didn't feel like downloading third party software or converting it to another format.
 Instead I used an online .RAF to .JPG converter! They didn't ask for credit card information so this was a win:
 
