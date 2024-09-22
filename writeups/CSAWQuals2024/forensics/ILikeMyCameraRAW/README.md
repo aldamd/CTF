@@ -41,7 +41,7 @@ However, while virtually standing at the coordinates, I did see a building above
 
 So like a wild dog, I started running through the Google Streets™, chasing down the address of what looked to be the red shining building until I found 60 Water Street (I guess that could be our Spillin[...] hint). Some Google searching and a Wikipedia page later, I found a close-up shot of the advertisement above with a phone number.
 
-Slapping the phone number into our password-protected pgp key seems to do the trick!
+Slapping the phone number into our password-protected pgp key seemed to do the trick!
 ```shell
 gpg: AES256.CFB encrypted data
 gpg: encrypted with 1 passphrase
