@@ -5,7 +5,7 @@ We start with a zip file called challenge.zip. When we unzip it, we are left wit
 Unzipping this leaves us with chunk_1.zip and chunk_0.txt. 
 This format continues, unzipping the nested zip files and getting their associated text files, over and over and over. 
 
-Catenating the text files, each one contains around 5 characters. 
+Inspecting the text files, each one contains around 5 characters. 
 Given the sheer number of zipfiles and tiny text files and that the original zip file was around 7.5MB, 
 my intuition tells me we're going to have to unzip all these files and combine the contents of the text files.
 
