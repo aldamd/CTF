@@ -1,6 +1,6 @@
 from zipfile import ZipFile
-import os
-from base64 import b64decode
+from os import remove
+from base64 import b64decode #when in doubt try base64
 
 def recursiveUnzip(first_zip: str, file_ext_oi: str) -> None:
     with ZipFile(first_zip) as zf:
@@ -32,7 +32,7 @@ def recursiveUnzip(first_zip: str, file_ext_oi: str) -> None:
                 break
 
     print(f"Found {file_count} {file_ext_oi} files")
-    os.remove(current_zip)
+    remove(current_zip)
     with open("outfile", "wb") as wb:
         wb.write(b64decode(contents))
     print("Contents written to 'outfile'")
@@ -41,3 +41,4 @@ if __name__ == "__main__":
     first_zip = "challenge.zip"
     file_ext_oi = ".txt" #file extension of interest
     recursiveUnzip(first_zip, file_ext_oi)
+    
