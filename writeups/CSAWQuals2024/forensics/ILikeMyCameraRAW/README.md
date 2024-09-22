@@ -39,7 +39,7 @@ Location data is always juicy! Let's see if we can reproduce this shot on google
 The answer was not really!! Don't get me wrong, it's a beautiful photo, but the combination of elevation changes and the filters gave my peanut brain a hard time trying to reproduce.
 However, while virtually standing at the coordinates, I did see a building above the aforementioned "brick wall" that looks somewhat similar to the red shining building on the left in the photo.
 
-So like a wild dog, I started running through the Google Streets™, chasing down the address of what looked to be the red shining building until I found 60 Water Street (I guess that could be our Spillin[...] hint. Some Google searching and a Wikipedia page later, I found a close-up shot of the advertisement above with a phone number.
+So like a wild dog, I started running through the Google Streets™, chasing down the address of what looked to be the red shining building until I found 60 Water Street (I guess that could be our Spillin[...] hint). Some Google searching and a Wikipedia page later, I found a close-up shot of the advertisement above with a phone number.
 
 Slapping the phone number into our password-protected pgp key seems to do the trick!
 ```shell
