@@ -13,7 +13,7 @@ After doing this too many times to admit, I decided to let python take care of t
 
 ```python3
 from zipfile import ZipFile
-import os
+from os import remove
 from base64 import b64decode #when in doubt try base64
 
 def recursiveUnzip(first_zip: str, file_ext_oi: str) -> None:
@@ -46,7 +46,7 @@ def recursiveUnzip(first_zip: str, file_ext_oi: str) -> None:
                 break
 
     print(f"Found {file_count} {file_ext_oi} files")
-    os.remove(current_zip)
+    remove(current_zip)
     with open("outfile", "wb") as wb:
         wb.write(b64decode(contents))
     print("Contents written to 'outfile'")
