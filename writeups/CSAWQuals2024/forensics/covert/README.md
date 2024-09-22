@@ -1,6 +1,10 @@
 # covert
 >It appears there's been some shady communication going on in our network...
 
+## Tools Used
+- Wireshark
+- python3
+##
 To start, we're given a pcap(ng) file and a keys.log file, so that should tell us we're gonna be fiddling with Wireshark. 
 
 Opening up Wireshark, we see a lot of TLS packets and not a lot of HTTP so we configure the keys.log file in our Wireshark settings to decrypt this TLS for us. Now the beautiful greens of the HTTP packets are visible! 
