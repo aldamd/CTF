@@ -29,10 +29,25 @@ The key in decoding the flag is to find the delay before the echo. In order to d
 estimated signal spectrum and computing the inverse Fourier transform. This challenge is dragging me, kicking and screaming, back into differential equations. 
 
 Luckily, most of the hard work has already been done by the giants whose shoulders I'm making sore. The equation for calculating the cepstrum is as follows:
-![image](https://github.com/user-attachments/assets/5a5e9c74-6408-4784-a684-9cd8a432e739)
-where {\displaystyle C} is the cepstrum, {\displaystyle f(t)} is the signal, {\displaystyle {\mathcal {F}}} is the Fourier transform, and {\displaystyle {\mathcal {F}}^{-1}} is the inverse Fourier transform.
 
+![image](https://github.com/user-attachments/assets/24aa4815-2253-4bee-9a0f-0552309ab187)
+
+where $C$ is the cepstrum, $f(t)$ is the signal, the $\mathcal F$ is the Fourier transform, and $\mathcal F^{-1}$ is the inverse Fourier transform.
 
 To sum it all up we need to:
 - Segment the signal data into little windows
 - Compute the cepstrum of each window
+- Determine if the binary 0 delay or the binary 1 delay is currently being used (which tells us if the data is encoded binary 0 or binary 1)
+- Convert the decoded binary to ascii
+
+The question now becomes how do we determine the size for our segmented data, and what are the 0 and 1 delays? 
+Given that the name of our wav file is 256, we can hope that 256 bits will be a good enough size.
+According to the aforementioned powerpoint, the max delay before the echo becomes perceivable is 1ms, so for now that will be our maximum.
+
+Plugging this all into python:
+
+```python3
+print("Stop looking through the history, you're making me embarrassed!")
+```
+
+
