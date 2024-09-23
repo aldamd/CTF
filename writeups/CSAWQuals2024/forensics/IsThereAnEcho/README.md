@@ -32,7 +32,7 @@ Luckily, most of the hard work has already been done by the giants whose shoulde
 
 ![image](https://github.com/user-attachments/assets/24aa4815-2253-4bee-9a0f-0552309ab187)
 
-where $C$ is the cepstrum, $f(t)$ is the signal, the $\mathcal F$ is the Fourier transform, and $\mathcal F^{-1}$ is the inverse Fourier transform.
+where $C$ is the cepstrum, $f(t)$ is the signal, $\log$ is the natural logarithm, $\mathcal F$ is the Fourier transform, and $\mathcal F^{-1}$ is the inverse Fourier transform.
 
 To sum it all up we need to:
 - Segment the signal data into little windows
