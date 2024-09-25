@@ -49,7 +49,7 @@ def crack_xor_cipher(ct: bytes) -> ScoredGuess:
         best_guess = min(best_guess, guess)
 
     if not best_guess.key:
-        exit("no key gound (this should never happen!)")
+        exit("no key found (this should never happen!)")
 
     best_guess.ciphertext = ct
     best_guess.plaintext = bytes_xor(ct, bytes((best_guess.key,) * len(ct)))
