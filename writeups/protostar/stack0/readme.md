@@ -58,7 +58,7 @@ Here's the rundown:
 - gets function call (naughty naughty)
 - storing our [esp+0x5c] variable to the eax register
 - testing eax against itself (bitwise and), should always set the zero flag since eax = [esp+0x5c] = 0
-- jumps to memory location 0x08048427, pushes a string at memory location 0x8048529 to the stack in anticipation of the puts call
+- if the zero flag is set (always will be), jumps to memory location 0x08048427, pushes a string at memory location 0x8048529 to the stack in anticipation of the puts call
 - puts (prints) whatever string is at the address 0x8048529 in the binary's data section
 
 
