@@ -1,4 +1,4 @@
-# Diving into null
+# *nix philosophies
 > Do you really know *nix?
 ## Tools
 - ghidra
