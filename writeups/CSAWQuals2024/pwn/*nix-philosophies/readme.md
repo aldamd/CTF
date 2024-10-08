@@ -115,7 +115,7 @@ undefined8 main(void)
   return 0;
 }
 ```
-a lot of it is C++ iterator and file stream logic, but the chunk we're really interested in is this one:
+a lot of it is C++ iterator and i/o stream logic, but the chunk we're really interested in is this one:
 ```c
     while( true ) {
       /* check that we don't escape the string buffer? Iterator syntax garbage */
@@ -139,12 +139,11 @@ a lot of it is C++ iterator and file stream logic, but the chunk we're really in
   if (comparison == 0) {
     /* load the flag.txt file (0x102055 is the memory address of "flag.txt" in the data section of the binary) */
 ````
-Understanding this bit requires knowledge of the C++ iterators, but long story short, the code takes our input 
+Understanding this bit requires some knowledge of C++ iterators, but long story short, the code takes our input 
 and goes character-by-character adding them together; we're getting the running total (cumsum lol) of the characters in our input.
 
 We then have a read() call on our running total - 0x643. The first argument in read() is the file descriptor, meaning that if we get it to 0, read will use standard input. 
-Also notice the ```buf,0x20``` bit, it looks like only the first 0x20 (32) chars are considered.
-We then have a strcmp() call with ```"make every program a filter\n"``` and our ```buf``` buffer.
+Also notice the ```buf,0x20``` bit, it looks like only the first 0x20 (32) chars are considered. We then have a strcmp() call with ```"make every program a filter\n"``` and our ```buf``` buffer.
 
 The first 32 characters of our input, therefore, have to have a hex total of 0x643 (1603). We can throw together a fast and dirty python script to generate a bunch of valid strings:
 ```python3
@@ -188,7 +187,7 @@ $ ./chal
 Tell me what you know about *nix philosophies: m12ljknf0vHtdYNXGR
 You still lack knowledge about *nix sorry
 ```
-what the hell? I thought I had this one. I knew I should've hightailed it out when I saw the C++ syntax. Let's see what ltrace has to say about our input:
+What the hell? I thought I had this one. I knew I should've hightailed it out when I saw the C++ syntax. Let's see what ltrace has to say about our input:
 
 ```shell
 $ ltrace ./chal
@@ -201,6 +200,8 @@ error: maximum array length seems negative
 , "", 32)
 ```
 All the garbage aside, it looks like when our input is "m12ljknf0vHtdYNXGR" we were off on our ```char_sum - 0x643``` by 109, or 'm'. 
+
+We could've used ltrace from the beginning but I need the reversing practice :)
 
 Repeating the same for the string "DfZbUnHn7mxg7IlPMX" we end up being off by 68, or D.
 Alright I think I know what's happening here, looks like the first letter of our input isn't being considered for the running total. 
