@@ -118,7 +118,7 @@ In order to find the index location of our juicy delays, we can simply do
 (0.0012 * 1000) / 0.020833
 ```
 
-which gives us ~58, hence why the for loop iterates until 59.
+which gives us ~58, hence the for loop iterates until 59.
 
 Running the python script, we get a variety of flag permutations but eventually one sticks!
 
