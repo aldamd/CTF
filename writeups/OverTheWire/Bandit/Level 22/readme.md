@@ -21,6 +21,7 @@ chmod: changing permissions of '/tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv': Operatio
 
 bandit21@bandit:~$ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q
+
 bandit21@bandit:~$ exit
 
 $ ssh bandit22@bandit.labs.overthewire.org -p 2220
