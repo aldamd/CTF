@@ -15,4 +15,9 @@ bandit17@bandit:~$ exit
 
 $ ssh bandit18@bandit.labs.overthewire.org -p 2220
 $ x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
+[...]
+Byebye !
+Connection to bandit.labs.overthewire.org closed.
 ```
+
+We'll deal with this later
