@@ -38,7 +38,7 @@ Wrong! Please enter the correct current password.
 closed
 
 bandit16@bandit:~$ openssl s_client -quiet --connect localhost:31790
-Can't use SSL_get_servername
+Can\'t use SSL_get_servername
 depth=0 CN = SnakeOil
 verify error:num=18:self-signed certificate
 verify return:1
