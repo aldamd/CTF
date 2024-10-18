@@ -14,6 +14,6 @@ Correct!
 
 bandit14@bandit:~$ exit
 
-$ ssh bandit14@bandit.labs.overthewire.org -p 2220 -i ./sshkey
+$ ssh bandit15@bandit.labs.overthewire.org -p 2220
 $ 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
 ```
