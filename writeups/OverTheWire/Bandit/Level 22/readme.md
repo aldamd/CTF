@@ -25,6 +25,6 @@ bandit22@bandit:~$ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
 
 bandit22@bandit:~$ exit
 
-$ ssh bandit22@bandit.labs.overthewire.org -p 2220
+$ ssh bandit23@bandit.labs.overthewire.org -p 2220
 $ 0Zf11ioIjMVN551jX3CmStKLYqjk54Ga
 ```
