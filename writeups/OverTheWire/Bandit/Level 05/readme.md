@@ -22,7 +22,8 @@ dۙ�rOx����h0~ey
 �nS�
 �<��]�
 W��e�˥m�����O��D��2g��?�����`>5HYA�u���8�g�`0�$`��
-
+```
+```shell
 bandit4@bandit:~/inhere$ exit
 
 $ ssh bandit5@bandit.labs.overthewire.org -p 2220
