@@ -1,7 +1,7 @@
 # Level 27
 > Good job getting a shell! Now hurry and grab the password for bandit27!
 
-The exit 0 part of the /usr/bin/showtext immediately closes us out of the shell. In order to fix this, we need to exploit a property of the $ more command
+The exit 0 part of the /usr/bin/showtext immediately closes us out of the shell. In order to fix this, we need to exploit a property of the ```$ more``` command
 
 ![image](https://github.com/user-attachments/assets/462b7a26-bcec-42d3-acd4-dd654f785096)
 
