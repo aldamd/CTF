@@ -26,7 +26,7 @@ bandit12@bandit:/tmp/tmp.okIsKk6VYG$ file data
 data: bzip2 compressed data, block size = 900k
 
 bandit12@bandit:/tmp/tmp.okIsKk6VYG$ bzip2 -d data
-bzip2: Can't guess original name for data -- using data.out
+bzip2: Can\'t guess original name for data -- using data.out
 
 bandit12@bandit:/tmp/tmp.okIsKk6VYG$ ls
 data.out  data.txt
@@ -56,7 +56,7 @@ bandit12@bandit:/tmp/tmp.okIsKk6VYG$ file data6.bin
 data6.bin: bzip2 compressed data, block size = 900k
 
 bandit12@bandit:/tmp/tmp.okIsKk6VYG$ bzip2 -d data6.bin
-bzip2: Can't guess original name for data6.bin -- using data6.bin.out
+bzip2: Can\'t guess original name for data6.bin -- using data6.bin.out
 
 bandit12@bandit:/tmp/tmp.okIsKk6VYG$ ls
 data  data5.bin  data6.bin.out  data.txt
