@@ -34,6 +34,6 @@ The password of user bandit25 is iCi86ttT4KSNe1armKiwbQNmB3YJP3q4
 
 bandit24@bandit:/tmp/tmp.OVOzKt6biG$ exit
 
-$ ssh bandit24@bandit.labs.overthewire.org -p 2220
+$ ssh bandit25@bandit.labs.overthewire.org -p 2220
 $ iCi86ttT4KSNe1armKiwbQNmB3YJP3q4
 ```
