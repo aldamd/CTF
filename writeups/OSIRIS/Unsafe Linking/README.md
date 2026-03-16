@@ -60,13 +60,13 @@ def arbitrary_free(addr: bytes) -> None:
 ```
 
 - First, we `malloc` two large(r than the note structure) chunks (non-secret, allows arbitrary size definition). In doing so, we create two `0x10` byte note structure chunks and the two `0x20` byte note chunks, the note structures pointing to the notes
-![[unsafelinking1.png]]
+![](unsafelinking1.png)
 
 - Then, we `free` both chunks, subsequently freeing both `0x20` note chunks and both `0x10` note structure chunks
-![[unsafelinking3.png]]
+![](unsafelinking3.png)
 
 - We allocate a secret (`0x10` byte) chunk which grabs the latest note structure chunk that was `free`'d and overwrite its first `0x8` bytes, in this case with `a`'s
-![[unsafelinking2.png]]
+![](unsafelinking2.png)
 
 - When we call `free` on this chunk, it will first `free` the first `0x8` bytes, as it thinks its a pointer to the note it's managing, then the note struct will be `free`'d
 - This gives us the ability to arbitrarily `free` any address we specify!
@@ -106,11 +106,11 @@ def arbitrary_write(large_chunk_addr: int, addr: int, msg: bytes) -> None:
 ```
 
 - First, we `malloc` a large chunk that will be able to house two dummy chunks within it, both with valid metadata
-![[unsafelinking4.png]]
+![](unsafelinking4.png)
 
 - Then, using our [[#Arbitrary Free]], we `free` the two dummy chunks within, and the housing chunk itself
 	- It's not made as clear here due to the integrated step of `tcache` poisoning
-![[unsafelinking5.png]]
+![](unsafelinking5.png)
 
 - When we re-allocate our large chunk, we write whatever we want into it, overlapping with the two `tcache`'d chunks, allowing for tcache poisoning and subsequent arbitrary write!
 - We will use this to write addresses we want leaked to the `_IO_FILE` structure , and finally, our ROP chain on the `stack`
