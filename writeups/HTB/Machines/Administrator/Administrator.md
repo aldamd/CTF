@@ -6,28 +6,28 @@ We start with credentials for `olivia` that give us access to LDAP and SMB, allo
 - `hashcat`
 - `secretsdump.py` - DCSync attack to dump hashes
 
-###### [[#Recon]]
-- [[#Initial Scan]]
-	- [[#nxc hosts file]]
-- [[#FTP - TCP 21]]
-- [[#SMB - TCP 445]]
-- [[#Bloodhound]]
-	- [[#WinRM]]
-###### [[#User Shell - michael]]
-- [[#GenericAll]]
-###### [[#User Auth - benjamin]]
-- [[#Bloodhound Part 2]]
-- [[#FTP Authed - TCP 21]]
-- [[#Password Safe]]
-###### [[#User Shell - emily]]
-- [[#WinRM Emily]]
-- [[#Bloodhound Round 3]]
-###### [[#User Auth - ethan]]
-- [[#Targeted Kerberoast]]
-	- [[#Crack Ethan's Hash]]
-###### [[#Root Shell]]
-- [[#Bloodhound Final]]
-	- [[#DCSYNC]]
+### [Recon](#recon)
+- [Initial Scan](#initial-scan)
+    - [nxc hosts file](#nxc-hosts-file)
+- [FTP - TCP 21](#ftp---tcp-21)
+- [SMB - TCP 445](#smb---tcp-445)
+- [Bloodhound](#bloodhound)
+    - [WinRM](#winrm)
+### [User Shell - michael](#user-shell---michael)
+- [GenericAll](#genericall)
+### [User Auth - benjamin](#user-auth---benjamin)
+- [Bloodhound Part 2](#bloodhound-part-2)
+- [FTP Authed - TCP 21](#ftp-authed---tcp-21)
+- [Password Safe](#password-safe)
+### [User Shell - emily](#user-shell---emily)
+- [WinRM Emily](#winrm-emily)
+- [Bloodhound Round 3](#bloodhound-round-3)
+### [User Auth - ethan](#user-auth---ethan)
+- [Targeted Kerberoast](#targeted-kerberoast)
+    - [Crack Ethan's Hash](#crack-ethans-hash)
+### [Root Shell](#root-shell)
+- [Bloodhound Final](#bloodhound-final)
+    - [DCSYNC](#dcsync)
 
 ---
 # Recon
@@ -184,7 +184,7 @@ emma                          2024-10-31 00:18:35 0
 
 - Then we can pop open the `bloodhound` docker container and shove the generated zipfiles in there
 
-![[Pasted image 20260210222415.png]]
+![](https://github.com/aldamd/CTF/blob/main/writeups/HTB/Machines/Administrator/Pasted%20image%2020260210222415.png)
 - We immediately see that `olivia` is a member of remote management users, meaning we might be able to grab a `winrm` shell
 - They also have `GenericAll` over the user `Michael`
 
@@ -261,7 +261,7 @@ SMB         10.129.19.205   445    DC               [+] administrator.htb\michae
 # User Auth - benjamin
 ## Bloodhound Part 2
 ---
-![Pasted image 20260210224938.png](Pasted image 20260210224938.png)
+![Pasted image 20260210224938.png](https://github.com/aldamd/CTF/blob/main/writeups/HTB/Machines/Administrator/Pasted%20image%2020260210224938.png)
 - We can see that `michael` is able to change `benjamin`'s password:
 ```sh
 ❯ net rpc password "benjamin" "password" -U "administrator.htb"/"michael"%"password" -S 10.129.19.205
@@ -290,7 +290,7 @@ Backup.psafe3: Password Safe V3 database
 
 ## Password Safe
 ---
-- Looking up password safe v3, we get a link to the following [github rep]([https://www.pwsafe.org/](https://github.com/pwsafe/pwsafe))
+- Looking up password safe v3, we get a link to the following [github rep](https://github.com/pwsafe/pwsafe)
 - It's a GUI program so I installed it to a QEMU Windows VM, but in order to open it, we need the master password
 - The first line of the file is the hashed master password, so we can pass this file directly to `hashcat`!
 	- When we pass it to hashcat, we see that hash mode `5200` is for `Password Safe v3`
@@ -344,7 +344,7 @@ f1a28ce7b16f9538f53dbb8ed4ad1bec
 
 ## Bloodhound Round 3
 ---
-![](Pasted image 20260210232536.png)
+![](https://github.com/aldamd/CTF/blob/main/writeups/HTB/Machines/Administrator/Pasted%20image%2020260210232536.png)
 - Inspecting `bloodhound`, we can see that `emily` has `GenericWrite` over the user `ethan`
 - With `GenericWrite`, we can potentially do shadow credential or targeted kerberoast
 	- We know shadow credential doesn't work in this case, so let's try a targeted kerberoast
@@ -381,7 +381,7 @@ $krb5tgs$23$*ethan$ADMINISTRATOR.HTB$administrator.htb\ethan*$248715af2e0066d752
 # Root Shell
 ## Bloodhound Final
 ---
-![](Pasted image 20260210233838.png)
+![alt text](https://github.com/aldamd/CTF/blob/main/writeups/HTB/Machines/Administrator/Pasted%20image%2020260210233838.png)
 - Inspecting `bloodhound`, we see that `ethan` has various interaction options with the `Tier 0` administrator object
 - We can use the `secretsdump.py` impacket script to perform a `DCSYNC` attack to obtain the password hash of an arbitrary principal 
 
