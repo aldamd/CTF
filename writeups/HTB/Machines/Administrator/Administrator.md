@@ -261,7 +261,7 @@ SMB         10.129.19.205   445    DC               [+] administrator.htb\michae
 # User Auth - benjamin
 ## Bloodhound Part 2
 ---
-![[Pasted image 20260210224938.png]]
+![Pasted image 20260210224938.png](Pasted image 20260210224938.png)
 - We can see that `michael` is able to change `benjamin`'s password:
 ```sh
 ❯ net rpc password "benjamin" "password" -U "administrator.htb"/"michael"%"password" -S 10.129.19.205
@@ -344,7 +344,7 @@ f1a28ce7b16f9538f53dbb8ed4ad1bec
 
 ## Bloodhound Round 3
 ---
-![[Pasted image 20260210232536.png]]
+![](Pasted image 20260210232536.png)
 - Inspecting `bloodhound`, we can see that `emily` has `GenericWrite` over the user `ethan`
 - With `GenericWrite`, we can potentially do shadow credential or targeted kerberoast
 	- We know shadow credential doesn't work in this case, so let's try a targeted kerberoast
@@ -381,7 +381,7 @@ $krb5tgs$23$*ethan$ADMINISTRATOR.HTB$administrator.htb\ethan*$248715af2e0066d752
 # Root Shell
 ## Bloodhound Final
 ---
-![[Pasted image 20260210233838.png]]
+![](Pasted image 20260210233838.png)
 - Inspecting `bloodhound`, we see that `ethan` has various interaction options with the `Tier 0` administrator object
 - We can use the `secretsdump.py` impacket script to perform a `DCSYNC` attack to obtain the password hash of an arbitrary principal 
 
